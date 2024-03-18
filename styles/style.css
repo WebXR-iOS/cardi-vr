@@ -1,0 +1,49 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    background-color: #1c1c1c;
+    color: #111;
+    margin: 0px;
+    padding: 0;
+    color-scheme: dark;
+}
+
+#info-msg {
+	position: fixed;
+	bottom: 5px;
+	left: 5px;
+	color: #a8a8a8;
+	font-family: sans-serif;
+	font-size: 2.5vh;
+	z-index: 103;
+}
+
+#app-group {
+    display: flex;
+    z-index: 2;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/assets/images/background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+#app-group > img {
+
+}
+
+#app-group > h1 {
+    color: white;
+    font-size: 12px;
+}
+
+#app-group > button {
+    border: 0;
+    border-radius: 5px;
+    background: #b855ca;
+    color: white;
+    font-size: 12px;
+}
