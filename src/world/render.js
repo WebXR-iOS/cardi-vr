@@ -13,15 +13,19 @@ class Render {
     render() {
         // Setup three.js WebGL renderer. Note: Antialiasing is a big performance hit.
         // Only enable it if you actually need to.
-        var renderer = new THREE.WebGLRenderer({antialias: false});
-        renderer.setPixelRatio(Math.floor(window.devicePixelRatio));
+        this.renderer = new THREE.WebGLRenderer({antialias: false});
+        this.renderer.setPixelRatio(Math.floor(window.devicePixelRatio));
 
         // Append the canvas element created by the renderer to document body element.
-        document.body.appendChild(renderer.domElement);
+        document.body.appendChild(this.renderer.domElement);
 
         this.vrDisplay = this.top.vrDisplay;
 
         this.scene = new Scene(this);
+    };
+
+    launch() {
+        this.vrDisplay.requestPresent([{source: this.renderer.domElement}]);
     };
 };
 

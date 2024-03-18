@@ -32,6 +32,8 @@ class Main {
     launch(evt) {
         document.querySelector("#vr-group").style.display = "";
         document.querySelector("#app-group").style.display = "none";
+
+        this.render.launch();
     };
 };
 

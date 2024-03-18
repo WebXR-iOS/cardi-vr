@@ -30,7 +30,7 @@ class Scene {
         var controls = new THREE.DeviceOrientationControls(camera);
 
         // Apply VR stereo rendering to renderer.
-        var effect = new THREE.VREffect(renderer);
+        var effect = new THREE.VREffect(this.top.renderer);
         effect.setSize(window.innerWidth, window.innerHeight);
 
         // Add a light and sky
