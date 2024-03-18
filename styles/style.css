@@ -8,6 +8,7 @@ html, body {
     margin: 0px;
     padding: 0;
     color-scheme: dark;
+    overflow: hidden;
 }
 
 #info-msg {

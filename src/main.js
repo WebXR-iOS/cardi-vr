@@ -20,6 +20,15 @@ class Main {
 
         this.vrDisplay = new CardboardVRDisplay({});
 
+        // Mock VRFrameData for VRControls
+        window.VRFrameData = function() {
+            this.leftViewMatrix = new Float32Array(16);
+            this.rightViewMatrix = new Float32Array(16);
+            this.leftProjectionMatrix = new Float32Array(16);
+            this.rightProjectionMatrix = new Float32Array(16);
+            this.pose = null;
+        };
+
         navigator.getVRDisplays = function () {
             return new Promise(function (resolve) {
               resolve([scope.vrDisplay]);
