@@ -36,7 +36,7 @@ html, body {
 }
 
 #app-group > div {
-    background-image: url("./assets/images/background.png");
+    background-image: url("../assets/images/background.png");
     background-color: #1c1c1c;
     background-size: cover;
     background-position: center;
