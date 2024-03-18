@@ -2,7 +2,7 @@
  * @author crazyh / https://github.com/crazyh2
  */
 
-import { Scene } from "./scene.js";
+import { Render } from "./world/render.js";
 
 class Main {
     constructor() {
@@ -16,15 +16,17 @@ class Main {
     };
 
     load() {
-        this.scene = new Scene();
+        var scope = this;
 
         this.vrDisplay = new CardboardVRDisplay({});
 
         navigator.getVRDisplays = function () {
             return new Promise(function (resolve) {
-              resolve([vrDisplay]);
+              resolve([scope.vrDisplay]);
             });
         };
+
+        this.render = new Render(this);
     };
 
     launch(evt) {
