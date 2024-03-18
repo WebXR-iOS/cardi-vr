@@ -36,6 +36,7 @@ html, body {
 }
 
 #app-group > div {
+    filter: brightness(70%) blur(2px);
     background-image: url("../assets/images/background.png");
     background-color: #1c1c1c;
     background-size: cover;
