@@ -2,7 +2,7 @@
  * @author crazyh / https://github.com/crazyh2
  */
 
-import { ActionsInfoScreen } from "../screens/start/actionsInfo";
+import { ActionsInfoScreen } from "../screens/start/actionsInfo.js";
 
 class Scene {
     constructor(top) {
@@ -62,8 +62,8 @@ class Scene {
             var delta = Math.min(timestamp - lastRender, 500);
             lastRender = timestamp;
 
-            // Apply rotation to cube mesh
-            //cube.rotation.y += delta * 0.0006;
+            // Render UI
+            ThreeMeshUI.update();
 
             // Update VR headset position and apply to camera.
             controls.update();
