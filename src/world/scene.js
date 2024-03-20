@@ -2,6 +2,8 @@
  * @author crazyh / https://github.com/crazyh2
  */
 
+import { ActionsInfoScreen } from "../screens/start/actionsInfo";
+
 class Scene {
     constructor(top) {
         this.top = top;
@@ -50,6 +52,9 @@ class Scene {
 
         // Add cube mesh to your three.js scene
         scene.add(cube);*/
+
+        // Load Default Screen
+        this.top.ScreenManager.renderScreen(ActionsInfoScreen);
 
         // Request animation frame loop function
         var lastRender = 0;
