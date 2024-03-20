@@ -16,8 +16,8 @@ class ActionsInfoScreen extends Screen {
             width: 1.2,
             height: 0.7,
             padding: 0.2,
-            fontFamily: './assets/Roboto-msdf.json',
-            fontTexture: './assets/Roboto-msdf.png',
+            fontFamily: './assets/fonts/Roboto-msdf.json',
+            fontTexture: './assets/fonts/Roboto-msdf.png',
         });
            
         const text = new ThreeMeshUI.Text({
