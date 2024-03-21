@@ -58,7 +58,7 @@ THREE.VREffect = function ( renderer, onError ) {
 
 	var scope = this;
 
-	var rendererSize = renderer.getSize();
+	var rendererSize = new THREE.Vector2( 0, 0 ); renderer.getSize(rendererSize);
 	var rendererUpdateStyle = false;
 	var rendererPixelRatio = renderer.getPixelRatio();
 
