@@ -9,7 +9,7 @@ class Scene {
         this.top = top;
 
         this.scene = new THREE.Scene();
-        
+
         this.main();
     };
 
@@ -40,6 +40,7 @@ class Scene {
         this.scene.add( light );
 
         // Kick off the render loop.
+        const scope = this;
         vrDisplay.requestAnimationFrame(animate);
 
         // Create 3D objects.
@@ -57,7 +58,6 @@ class Scene {
         this.top.ScreenManager.renderScreen(ActionsInfoScreen);
 
         // Request animation frame loop function
-        var scope = this;
         var lastRender = 0;
         function animate(timestamp) {
             var delta = Math.min(timestamp - lastRender, 500);
