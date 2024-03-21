@@ -9,6 +9,8 @@ class Render {
     constructor(top) {
         this.top = top;
 
+        this.scene = new THREE.Scene();
+
         this.ScreenManager = new ScreenManager(this);
 
         this.render();
