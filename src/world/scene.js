@@ -14,7 +14,7 @@ class Scene {
         var vrDisplay = this.top.vrDisplay;
 
         // Create a three.js scene.
-        var scene = new THREE.Scene();
+        this.scene = new THREE.Scene();
 
         // Create a three.js camera.
         var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
@@ -26,7 +26,7 @@ class Scene {
         );
         reticle.position.z = -0.5;
         camera.add(reticle);
-        scene.add(camera);
+        this.scene.add(camera);
 
         // Apply VR headset positional data to camera.
         var controls = new THREE.DeviceOrientationControls(camera);
@@ -37,7 +37,7 @@ class Scene {
 
         // Add a light and sky
         var light = new THREE.DirectionalLight(0xffffff, 0.4);
-        scene.add( light );
+        this.scene.add( light );
 
         // Kick off the render loop.
         vrDisplay.requestAnimationFrame(animate);
@@ -69,7 +69,7 @@ class Scene {
             controls.update();
 
             // Render the scene.
-            effect.render(scene, camera);
+            effect.render(this.scene, camera);
 
             // Keep looping.
             vrDisplay.requestAnimationFrame(animate);

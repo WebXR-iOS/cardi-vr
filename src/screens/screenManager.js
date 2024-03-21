@@ -8,7 +8,7 @@ class ScreenManager {
     };
 
     renderScreen(screenGroup) {
-        this.root.scene.scene.background = new THREE.Color(0x000000);
+        this.root.scene.background = new THREE.Color(0x000000);
 
         screenGroup.render(screenGroup.renderGroup);
 
