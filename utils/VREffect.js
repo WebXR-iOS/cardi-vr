@@ -253,7 +253,7 @@ THREE.VREffect = function ( renderer, onError ) {
 
 			// When rendering we don't care what the recommended size is, only what the actual size
 			// of the backbuffer is.
-			var size = renderer.getSize();
+			var size = new THREE.Vector2( 0, 0 ); renderer.getSize(size);
 			var layers = vrDisplay.getLayers();
 			var leftBounds;
 			var rightBounds;
