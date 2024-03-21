@@ -8,9 +8,10 @@ import { ScreenManager } from "./../screens/screenManager.js";
 class Render {
     constructor(top) {
         this.top = top;
-        this.render();
 
         this.ScreenManager = new ScreenManager(this);
+
+        this.render();
     };
 
     render() {
