@@ -121,7 +121,7 @@ THREE.VREffect = function ( renderer, onError ) {
 			if ( ! wasPresenting ) {
 
 				rendererPixelRatio = renderer.getPixelRatio();
-				rendererSize = renderer.getSize();
+				rendererSize = new THREE.Vector2( 0, 0 ); renderer.getSize(rendererSize);
 
 				renderer.setPixelRatio( 1 );
 				renderer.setSize( eyeWidth * 2, eyeHeight, false );
