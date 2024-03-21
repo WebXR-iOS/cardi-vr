@@ -240,7 +240,7 @@ THREE.VREffect = function ( renderer, onError ) {
 			if ( autoUpdate ) {
 
 				scene.updateMatrixWorld();
-				scene.autoUpdate = false;
+				scene.matrixWorldAutoUpdate = false;
 
 			}
 
@@ -387,7 +387,7 @@ THREE.VREffect = function ( renderer, onError ) {
 
 			if ( autoUpdate ) {
 
-				scene.autoUpdate = true;
+				scene.matrixWorldAutoUpdate = true;
 
 			}
 
