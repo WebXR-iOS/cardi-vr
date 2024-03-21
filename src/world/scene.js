@@ -8,7 +8,7 @@ class Scene {
     constructor(top) {
         this.top = top;
 
-        this.scene = new THREE.Scene();
+        this.scene = this.top.scene;
 
         this.main();
     };
