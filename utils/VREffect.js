@@ -235,7 +235,7 @@ THREE.VREffect = function ( renderer, onError ) {
 
 		if ( vrDisplay && scope.isPresenting ) {
 
-			var autoUpdate = scene.autoUpdate;
+			var autoUpdate = scene.matrixWorldAutoUpdate;
 
 			if ( autoUpdate ) {
 
