@@ -454,8 +454,8 @@ THREE.VREffect = function ( renderer, onError ) {
 
 		// The eye's model matrix in head space is the inverse of headToEyeMatrix we calculated above.
 
-		eyeMatrixL.getInverse( eyeMatrixL );
-		eyeMatrixR.getInverse( eyeMatrixR );
+		eyeMatrixL.invert();//getInverse( eyeMatrixL );
+		eyeMatrixR.invert();//getInverse( eyeMatrixR );
 
 	}
 
