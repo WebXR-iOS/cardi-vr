@@ -57,6 +57,7 @@ class Scene {
         this.top.ScreenManager.renderScreen(ActionsInfoScreen);
 
         // Request animation frame loop function
+        var scope = this;
         var lastRender = 0;
         function animate(timestamp) {
             var delta = Math.min(timestamp - lastRender, 500);
@@ -69,7 +70,7 @@ class Scene {
             controls.update();
 
             // Render the scene.
-            effect.render(this.scene, camera);
+            effect.render(scope.scene, camera);
 
             // Keep looping.
             vrDisplay.requestAnimationFrame(animate);
