@@ -55,7 +55,7 @@ class Scene {
         scene.add(cube);*/
 
         // Load Default Screen
-        this.top.ScreenManager.renderScreen(ActionsInfoScreen);
+        this.top.ScreenManager.renderScreen(new ActionsInfoScreen(this.top));
 
         // Request animation frame loop function
         var lastRender = 0;
