@@ -8,6 +8,7 @@ class ScreenManager {
     };
 
     renderScreen(screenGroup) {
+        console.log(JSON.stringify(this.root.scene))
         this.root.scene.scene.background = new THREE.Color(0x000000);
 
         screenGroup.render(screenGroup.renderGroup);
