@@ -7,14 +7,14 @@ import { ActionsInfoScreen } from "../screens/start/actionsInfo.js";
 class Scene {
     constructor(top) {
         this.top = top;
+
+        this.scene = this.top.scene;
+
         this.main();
     };
 
     main() {
         var vrDisplay = this.top.vrDisplay;
-
-        // Create a three.js scene.
-        this.scene = new THREE.Scene();
 
         // Create a three.js camera.
         var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
@@ -40,6 +40,7 @@ class Scene {
         this.scene.add( light );
 
         // Kick off the render loop.
+        const scope = this;
         vrDisplay.requestAnimationFrame(animate);
 
         // Create 3D objects.
@@ -54,7 +55,7 @@ class Scene {
         scene.add(cube);*/
 
         // Load Default Screen
-        this.top.ScreenManager.renderScreen(ActionsInfoScreen);
+        this.top.ScreenManager.renderScreen(new ActionsInfoScreen(this.top));
 
         // Request animation frame loop function
         var lastRender = 0;
@@ -69,7 +70,7 @@ class Scene {
             controls.update();
 
             // Render the scene.
-            effect.render(this.scene, camera);
+            effect.render(scope.scene, camera);
 
             // Keep looping.
             vrDisplay.requestAnimationFrame(animate);
