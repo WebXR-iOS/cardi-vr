@@ -7,14 +7,14 @@ import { ActionsInfoScreen } from "../screens/start/actionsInfo.js";
 class Scene {
     constructor(top) {
         this.top = top;
+
+        this.scene = new THREE.Scene();
+        
         this.main();
     };
 
     main() {
         var vrDisplay = this.top.vrDisplay;
-
-        // Create a three.js scene.
-        this.scene = new THREE.Scene();
 
         // Create a three.js camera.
         var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
