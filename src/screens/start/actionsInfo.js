@@ -26,6 +26,8 @@ class ActionsInfoScreen extends Screen {
            
         container.add( text );
 
+        container.position.z = -1;
+
         renderGroup.add( container );
     };
 };
