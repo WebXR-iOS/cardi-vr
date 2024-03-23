@@ -12,7 +12,7 @@ class ActionsInfoScreen extends Screen {
     };
 
     render(renderGroup) {
-        const container = new ThreeMeshUI.Block({
+        /*const container = new ThreeMeshUI.Block({
             width: 1.2,
             height: 0.7,
             padding: 0.2,
@@ -28,7 +28,17 @@ class ActionsInfoScreen extends Screen {
 
         container.position.z = -1;
 
-        renderGroup.add( container );
+        renderGroup.add( container );*/
+
+        var geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+        var material = new THREE.MeshNormalMaterial();
+        var cube = new THREE.Mesh(geometry, material);
+
+        // Position cube mesh
+        cube.position.z = -1;
+
+        // Add cube mesh to your three.js scene
+        renderGroup.add(cube);
     };
 };
 
