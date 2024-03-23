@@ -12,11 +12,11 @@ class ScreenManager {
 
         screenGroup.render(screenGroup.renderGroup);
 
-        this.root.scene.remove(screenGroup.renderGroup);
+        if(this.screenGroup) this.root.scene.remove(this.screenGroup.renderGroup);
 
         this.screenGroup = screenGroup;
 
-        this.root.scene.add(screenGroup.renderGroup);
+        this.root.scene.add(this.screenGroup.renderGroup);
     };
 };
 
