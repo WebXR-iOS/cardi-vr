@@ -30,6 +30,26 @@ class ActionsInfoScreen extends Screen {
 
         renderGroup.add( container );*/
 
+        // Add a light and sky
+        var light = new THREE.DirectionalLight(0xffffff, 0.4);
+        renderGroup.add( light );
+
+        // Fade effect
+        this.root.scene.background = new THREE.Color( 0x976dc2 );
+		this.root.scene.fog = new THREE.Fog( 0x976dc2, 200, 1000 );
+
+        // Ground
+        const mesh = new THREE.Mesh( new THREE.PlaneGeometry( 2000, 2000 ), new THREE.MeshPhongMaterial( { color: 0x999999, depthWrite: false } ) );
+		mesh.rotation.x = - Math.PI / 2;
+		mesh.receiveShadow = true;
+		renderGroup.add( mesh );
+
+		const grid = new THREE.GridHelper( 2000, 20, 0x000000, 0x000000 );
+		grid.material.opacity = 0.2;
+		grid.material.transparent = true;
+		renderGroup.add( grid );
+
+        // UI
         var geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
         var material = new THREE.MeshNormalMaterial();
         var cube = new THREE.Mesh(geometry, material);
