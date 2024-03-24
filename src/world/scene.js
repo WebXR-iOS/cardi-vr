@@ -8,8 +8,6 @@ class Scene {
     constructor(top) {
         this.top = top;
 
-        this.scene = this.top.scene;
-
         this.main();
     };
 
@@ -26,7 +24,7 @@ class Scene {
         );
         reticle.position.z = -0.5;
         camera.add(reticle);
-        this.scene.add(camera);
+        this.top.scene.add(camera);
 
         // Apply VR headset positional data to camera.
         var controls = new THREE.DeviceOrientationControls(camera);
@@ -37,7 +35,7 @@ class Scene {
 
         // Add a light and sky
         var light = new THREE.DirectionalLight(0xffffff, 0.4);
-        this.scene.add( light );
+        this.top.scene.add( light );
 
         // Kick off the render loop.
         const scope = this;
