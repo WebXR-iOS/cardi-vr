@@ -68,7 +68,7 @@ class Scene {
             controls.update();
 
             // Render the scene.
-            effect.render(scope.scene, camera);
+            effect.render(scope.top.scene, camera);
 
             // Keep looping.
             vrDisplay.requestAnimationFrame(animate);
