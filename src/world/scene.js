@@ -31,6 +31,9 @@ class Scene {
         camera.add(reticle);
         this.scene.add(camera);
 
+        // Apply VR headset action controls to camera.
+        var actionControls = new CardboardActions(camera);
+
         // Apply VR headset positional data to camera.
         var controls = new THREE.DeviceOrientationControls(camera);
 
@@ -68,6 +71,9 @@ class Scene {
 
             // Render UI
             ThreeMeshUI.update();
+            
+            // Update action controls
+            actionControls.update();
 
             // Update VR headset position and apply to camera.
             controls.update();
