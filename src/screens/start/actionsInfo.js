@@ -35,8 +35,8 @@ class ActionsInfoScreen extends Screen {
         renderGroup.add( light );
 
         // Fade effect
-        this.root.scene.background = new THREE.Color( 0x976dc2 );
-		this.root.scene.fog = new THREE.Fog( 0x976dc2, 200, 1000 );
+        renderGroup.background = new THREE.Color( 0x976dc2 );
+		renderGroup.fog = new THREE.Fog( 0x976dc2, 200, 1000 );
 
         // Ground
         const mesh = new THREE.Mesh( new THREE.PlaneGeometry( 2000, 2000 ), new THREE.MeshPhongMaterial( { color: 0x999999, depthWrite: false } ) );

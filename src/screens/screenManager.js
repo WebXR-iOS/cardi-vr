@@ -8,15 +8,9 @@ class ScreenManager {
     };
 
     renderScreen(screenGroup) {
-        this.root.scene.background = new THREE.Color(0x000000);
-
         screenGroup.render(screenGroup.renderGroup);
 
-        if(this.screenGroup) this.root.scene.remove(this.screenGroup.renderGroup);
-
-        this.screenGroup = screenGroup;
-
-        this.root.scene.add(this.screenGroup.renderGroup);
+        this.root.scene = screenGroup.renderGroup;
     };
 };
 

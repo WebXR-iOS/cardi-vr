@@ -5,7 +5,7 @@
 class Screen {
     constructor(root) {
         this.root = root;
-        this.renderGroup = new THREE.Group();
+        this.renderGroup = new THREE.Scene();
     };
 
     render(renderGroup) {
