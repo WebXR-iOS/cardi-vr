@@ -12,24 +12,6 @@ class ActionsInfoScreen extends Screen {
     };
 
     render(renderGroup) {
-        /*const container = new ThreeMeshUI.Block({
-            width: 1.2,
-            height: 0.7,
-            padding: 0.2,
-            fontFamily: './assets/fonts/Roboto-msdf.json',
-            fontTexture: './assets/fonts/Roboto-msdf.png',
-        });
-           
-        const text = new ThreeMeshUI.Text({
-            content: "Some text to be displayed"
-        });
-           
-        container.add( text );
-
-        container.position.z = -1;
-
-        renderGroup.add( container );*/
-
         // Add a light and sky
         var light = new THREE.DirectionalLight(0xffffff, 0.4);
         renderGroup.add( light );
@@ -50,15 +32,23 @@ class ActionsInfoScreen extends Screen {
 		renderGroup.add( grid );
 
         // UI
-        var geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
-        var material = new THREE.MeshNormalMaterial();
-        var cube = new THREE.Mesh(geometry, material);
+        const container = new ThreeMeshUI.Block({
+            width: 1.2,
+            height: 0.7,
+            padding: 0.2,
+            fontFamily: './assets/fonts/Roboto-msdf.json',
+            fontTexture: './assets/fonts/Roboto-msdf.png',
+        });
+           
+        const text = new ThreeMeshUI.Text({
+            content: "Some text to be displayed"
+        });
+           
+        container.add( text );
 
-        // Position cube mesh
-        cube.position.z = -1;
+        container.position.z = -1;
 
-        // Add cube mesh to your three.js scene
-        renderGroup.add(cube);
+        renderGroup.add( container );
     };
 };
 
