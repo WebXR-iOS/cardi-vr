@@ -3,10 +3,15 @@
  */
 
 import { ActionsInfoScreen } from "../screens/start/actionsInfo.js";
+import { ScreenManager } from "./../screens/screenManager.js";
 
 class Scene {
     constructor(top) {
         this.top = top;
+
+        this.scene = new THREE.Scene();
+
+        this.ScreenManager = new ScreenManager(this);
 
         this.main();
     };
@@ -24,7 +29,7 @@ class Scene {
         );
         reticle.position.z = -0.5;
         camera.add(reticle);
-        this.top.scene.add(camera);
+        this.scene.add(camera);
 
         // Apply VR headset positional data to camera.
         var controls = new THREE.DeviceOrientationControls(camera);
@@ -35,7 +40,7 @@ class Scene {
 
         // Add a light and sky
         var light = new THREE.DirectionalLight(0xffffff, 0.4);
-        this.top.scene.add( light );
+        this.scene.add( light );
 
         // Kick off the render loop.
         const scope = this;
@@ -53,7 +58,7 @@ class Scene {
         scene.add(cube);*/
 
         // Load Default Screen
-        //this.top.ScreenManager.renderScreen(new ActionsInfoScreen(this.top));
+        this.ScreenManager.renderScreen(new ActionsInfoScreen(this));
 
         // Request animation frame loop function
         var lastRender = 0;
@@ -68,7 +73,7 @@ class Scene {
             controls.update();
 
             // Render the scene.
-            effect.render(scope.top.scene, camera);
+            effect.render(scope.scene, camera);
 
             // Keep looping.
             vrDisplay.requestAnimationFrame(animate);
