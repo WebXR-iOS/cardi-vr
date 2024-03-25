@@ -117,13 +117,13 @@
 
 				if ( device ) {
 
-					const alpha = device.alpha ? THREE.MathUtils.degToRad( device.alpha ) + scope.alphaOffset : 0; // Z
+					const alpha = device.alpha ? THREE.Math.degToRad( device.alpha ) + scope.alphaOffset : 0; // Z
 
-					const beta = device.beta ? THREE.MathUtils.degToRad( device.beta ) : 0; // X'
+					const beta = device.beta ? THREE.Math.degToRad( device.beta ) : 0; // X'
 
-					const gamma = device.gamma ? THREE.MathUtils.degToRad( device.gamma ) : 0; // Y''
+					const gamma = device.gamma ? THREE.Math.degToRad( device.gamma ) : 0; // Y''
 
-					const orient = scope.screenOrientation ? THREE.MathUtils.degToRad( scope.screenOrientation ) : 0; // O
+					const orient = scope.screenOrientation ? THREE.Math.degToRad( scope.screenOrientation ) : 0; // O
 
 					setObjectQuaternion( scope.object.quaternion, alpha, beta, gamma, orient );
 

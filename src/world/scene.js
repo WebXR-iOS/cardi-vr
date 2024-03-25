@@ -24,7 +24,7 @@ class Scene {
 
         // Create a reticle
         var reticle = new THREE.Mesh(
-            new THREE.RingGeometry(0.005, 0.01, 15),
+            new THREE.RingBufferGeometry(0.005, 0.01, 15),
             new THREE.MeshBasicMaterial({ color: 0xffffff }).depthTest = false
         );
         reticle.position.z = -0.5;
