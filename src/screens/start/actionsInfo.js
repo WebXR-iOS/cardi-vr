@@ -43,7 +43,7 @@ class ActionsInfoScreen extends Screen {
         });
            
         const text = new ThreeMeshUI.Text({
-            content: "Some text to be displayed",
+            content: "Welcome to CardiVR!",
             fontSize: 0.125
         });
            
