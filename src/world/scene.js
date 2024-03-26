@@ -20,7 +20,7 @@ class Scene {
         var vrDisplay = this.top.vrDisplay;
 
         // Create a three.js camera.
-        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
 
         // Create a reticle
         var reticle = new THREE.Mesh(
@@ -28,14 +28,14 @@ class Scene {
             new THREE.MeshBasicMaterial({ color: 0xffffff }).depthTest = false
         );
         reticle.position.z = -0.5;
-        camera.add(reticle);
-        this.scene.add(camera);
+        this.camera.add(reticle);
+        this.scene.add(this.camera);
 
         // Apply VR headset action controls to camera.
-        var actionControls = new CardboardActions(camera);
+        var actionControls = new CardboardActions(this.camera);
 
         // Apply VR headset positional data to camera.
-        var controls = new THREE.DeviceOrientationControls(camera);
+        var controls = new THREE.DeviceOrientationControls(this.camera);
 
         // Apply VR stereo rendering to renderer.
         var effect = new THREE.VREffect(this.top.renderer);
@@ -76,7 +76,7 @@ class Scene {
             controls.update();
 
             // Render the scene.
-            effect.render(scope.scene, camera);
+            effect.render(scope.scene, scope.camera);
 
             // Keep looping.
             vrDisplay.requestAnimationFrame(animate);
@@ -85,8 +85,8 @@ class Scene {
         function onResize() {
             console.log('Resizing to %s x %s.', window.innerWidth, window.innerHeight);
             effect.setSize(window.innerWidth, window.innerHeight);
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
+            scope.camera.aspect = window.innerWidth / window.innerHeight;
+            scope.camera.updateProjectionMatrix();
         }
 
         function onVRDisplayPresentChange() {
