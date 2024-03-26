@@ -14,7 +14,9 @@ class ActionsInfoScreen extends Screen {
 
     render(renderGroup) {
         // Add a light and sky
-        var light = new THREE.DirectionalLight(0xffffff, 0.4);
+        var light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set( 0, 1, 0 ); //default; light shining from top
+        light.castShadow = true; // default false
         renderGroup.add( light );
 
         // Fade effect
@@ -40,6 +42,22 @@ class ActionsInfoScreen extends Screen {
         mesh.lookAt( this.root.camera.position );
 
         renderGroup.add( mesh );
+
+        var mtlLoader = new THREE.MTLLoader();
+        mtlLoader.load("./assets/objects/gear_vr_controller.mtl", function(materials) {
+            materials.preload();
+
+            var objLoader = new THREE.OBJLoader();
+            objLoader.setMaterials(materials);
+            objLoader.load("./assets/objects/gear_vr_controller.obj", function(object) {
+                object.position.z = -0.8;
+                object.position.y = -0.3;
+                object.rotation.x = Math.PI / 7;
+                object.scale.set( 6, 6, 6 );
+
+                renderGroup.add(object);
+            });
+        });
     };
 };
 
