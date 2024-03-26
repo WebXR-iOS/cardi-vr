@@ -3,6 +3,7 @@
  */
 
 import { Screen } from "../screen.js";
+import { TextGeometry } from "../../../libraries/three.js";
 
 class ActionsInfoScreen extends Screen {
     constructor(root) {
@@ -26,7 +27,34 @@ class ActionsInfoScreen extends Screen {
 		renderGroup.add( grid );
 
         // UI
+        var loader = new THREE.FontLoader();
+        loader.load( '/assets/fonts/Roboto-msdf.json', function ( font ) {
 
+            var textGeometry = new THREE.TextGeometry( "text", {
+
+                font: font,
+
+                size: 50,
+                height: 10,
+                curveSegments: 12,
+
+                bevelThickness: 1,
+                bevelSize: 1,
+                bevelEnabled: true
+
+            });
+
+            var textMaterial = new THREE.MeshPhongMaterial( 
+                { color: 0xff0000, specular: 0xffffff }
+            );
+
+            var mesh = new THREE.Mesh( textGeometry, textMaterial );
+
+            mesh.position.z = -1;
+
+            scene.add( mesh );
+
+        }); 
     };
 };
 
