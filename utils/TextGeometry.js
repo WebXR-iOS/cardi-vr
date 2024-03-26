@@ -16,10 +16,10 @@
  */
 
 import {
-	ExtrudeGeometry
+	ExtrudeBufferGeometry
 } from '../libraries/three.js';
 
-class TextGeometry extends ExtrudeGeometry {
+class TextGeometry extends ExtrudeBufferGeometry {
 
 	constructor( text, parameters = {} ) {
 
