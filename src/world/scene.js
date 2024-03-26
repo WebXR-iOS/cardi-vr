@@ -68,9 +68,6 @@ class Scene {
         function animate(timestamp) {
             var delta = Math.min(timestamp - lastRender, 500);
             lastRender = timestamp;
-
-            // Render UI
-            ThreeMeshUI.update();
             
             // Update action controls
             actionControls.update();
