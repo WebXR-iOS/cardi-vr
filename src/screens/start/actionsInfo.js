@@ -3,7 +3,7 @@
  */
 
 import { Screen } from "../screen.js";
-import { TextGeometry } from "../../../libraries/three.js";
+import { TextGeometry } from "../../../utils/TextGeometry.js";
 
 class ActionsInfoScreen extends Screen {
     constructor(root) {
