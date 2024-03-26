@@ -51,6 +51,7 @@ class ActionsInfoScreen extends Screen {
             var mesh = new THREE.Mesh( textGeometry, textMaterial );
 
             mesh.position.z = -1;
+            mesh.lookAt( this.root.camera.position );
 
             scene.add( mesh );
 
