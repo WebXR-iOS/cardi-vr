@@ -58,7 +58,7 @@ class Scene {
         cube.position.z = -1;
 
         // Add cube mesh to your three.js scene
-        scene.add(cube);
+        this.scene.add(cube);
 
         // Load Default Screen
         //this.ScreenManager.renderScreen(new ActionsInfoScreen(this));
