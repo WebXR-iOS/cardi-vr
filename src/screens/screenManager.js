@@ -11,6 +11,7 @@ class ScreenManager {
         screenGroup.render(screenGroup.renderGroup);
 
         this.root.scene = screenGroup.renderGroup;
+        this.root.camera.add(this.root.reticle);
         this.root.scene.add(this.root.camera);
     };
 };

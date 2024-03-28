@@ -4,8 +4,9 @@
 
 import { Screen } from "../screen.js";
 import { TextBox } from "../../../utils/TextBox.js";
+import { ActionsInfoScreen } from "./actionsInfo.js";
 
-class ActionsInfoScreen extends Screen {
+class WelcomeScreen extends Screen {
     constructor(root) {
         super(root);
 
@@ -29,20 +30,17 @@ class ActionsInfoScreen extends Screen {
 		renderGroup.add( grid );
 
         // UI
-        var mesh = new TextBox("Roll 90 deg left for back", 0.07, 0.07, 50, 0xffffff);
+        var mesh = new TextBox("Welcome to CardiVR!", 0.07, 0.07, 50, 0xffffff);
         mesh.position.z = -1;
-        mesh.position.y = 0.23;
+        mesh.position.y = 0.03;
         mesh.lookAt( this.root.camera.position );
 
         renderGroup.add( mesh );
 
-        var mesh = new TextBox("Roll 90 deg right for select", 0.07, 0.07, 50, 0xffffff);
-        mesh.position.z = -1;
-        mesh.position.y = 0.15;
-        mesh.lookAt( this.root.camera.position );
-
-        renderGroup.add( mesh );
+        setTimeout(() => {
+            this.renderScreen(new ActionsInfoScreen(this.root));
+        }, 2000);
     };
 };
 
-export { ActionsInfoScreen };
+export { WelcomeScreen };
