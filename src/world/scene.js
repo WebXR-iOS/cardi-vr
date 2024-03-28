@@ -50,7 +50,7 @@ class Scene {
         vrDisplay.requestAnimationFrame(animate);
 
         // Create 3D objects.
-        /*var geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
+        var geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
         var material = new THREE.MeshNormalMaterial();
         var cube = new THREE.Mesh(geometry, material);
 
@@ -58,10 +58,10 @@ class Scene {
         cube.position.z = -1;
 
         // Add cube mesh to your three.js scene
-        scene.add(cube);*/
+        scene.add(cube);
 
         // Load Default Screen
-        this.ScreenManager.renderScreen(new ActionsInfoScreen(this));
+        //this.ScreenManager.renderScreen(new ActionsInfoScreen(this));
 
         // Request animation frame loop function
         var lastRender = 0;

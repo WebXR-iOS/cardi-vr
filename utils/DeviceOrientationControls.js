@@ -56,7 +56,7 @@
 
 				_euler.set( beta, alpha, - gamma, 'YXZ' ); // 'ZXY' for the device, but 'YXZ' for us
 
-alert("huh");
+
 				quaternion.setFromEuler( _euler ); // orient the device
 
 				quaternion.multiply( _q1 ); // camera looks out the back of the device, not the top
