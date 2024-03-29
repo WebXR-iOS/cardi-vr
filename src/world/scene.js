@@ -21,47 +21,21 @@ class Scene {
 
         // Create a three.js camera.
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
-
-        // Create a reticle
-        this.reticle = new THREE.Mesh(
-            new THREE.RingBufferGeometry(0.005, 0.01, 15),
-            new THREE.MeshBasicMaterial({ color: 0xffffff }).depthTest = false
-        );
-        this.reticle.position.z = -0.5;
-        this.camera.add(this.reticle);
         this.scene.add(this.camera);
 
         // Apply VR headset action controls to camera.
         var actionControls = new CardboardActions(this.camera);
 
-        // Apply VR headset positional data to camera.
+        // Apply VR headset rotational data to camera.
         var controls = new THREE.DeviceOrientationControls(this.camera);
 
         // Apply VR stereo rendering to renderer.
         var effect = new THREE.VREffect(this.top.renderer);
         effect.setSize(window.innerWidth, window.innerHeight);
 
-        // Add a light and sky
-        var light = new THREE.DirectionalLight(0xffffff, 0.4);
-        this.scene.add( light );
-
         // Kick off the render loop.
         const scope = this;
         vrDisplay.requestAnimationFrame(animate);
-
-        // Create 3D objects.
-        /*var geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5);
-        var material = new THREE.MeshNormalMaterial();
-        var cube = new THREE.Mesh(geometry, material);
-
-        // Position cube mesh
-        cube.position.z = -1;
-
-        // Add cube mesh to your three.js scene
-        this.scene.add(cube);*/
-
-        // Load Default Screen
-        //this.ScreenManager.renderScreen(new WelcomeScreen(this));
 
         // Request animation frame loop function
         var lastRender = 0;
