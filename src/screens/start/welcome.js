@@ -39,7 +39,7 @@ class WelcomeScreen extends Screen {
         var logo = new THREE.Mesh( plan , material );
         logo.position.z = -1;
         logo.position.y = 0.03;
-        mesh.lookAt( this.root.camera.position );
+        logo.lookAt( this.root.camera.position );
         scene.add(logo);
 
         renderGroup.add( mesh );
