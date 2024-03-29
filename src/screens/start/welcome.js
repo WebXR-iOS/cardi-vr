@@ -40,7 +40,7 @@ class WelcomeScreen extends Screen {
         logo.position.z = -1;
         logo.position.y = 0.03;
         logo.lookAt( this.root.camera.position );
-        scene.add(logo);
+        renderGroup.add(logo);
 
         renderGroup.add( mesh );
 
