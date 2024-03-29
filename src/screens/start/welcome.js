@@ -38,8 +38,9 @@ class WelcomeScreen extends Screen {
         renderGroup.add( mesh );
 
         setTimeout(() => {
+            alert("what")
             this.renderScreen(new ActionsInfoScreen(this.root));
-        }, 10000);
+        }, 20000);
     };
 };
 
