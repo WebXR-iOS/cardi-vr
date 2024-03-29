@@ -61,7 +61,7 @@ class Scene {
         this.scene.add(cube);*/
 
         // Load Default Screen
-        this.ScreenManager.renderScreen(new WelcomeScreen(this));
+        //this.ScreenManager.renderScreen(new WelcomeScreen(this));
 
         // Request animation frame loop function
         var lastRender = 0;
@@ -97,6 +97,10 @@ class Scene {
         // Resize the WebGL canvas when we resize and also when we change modes.
         window.addEventListener('resize', onResize);
         window.addEventListener('vrdisplaypresentchange', onVRDisplayPresentChange);
+    };
+
+    launch() {
+        this.ScreenManager.renderScreen(new WelcomeScreen(this));
     };
 
     renderScreen(screen) {

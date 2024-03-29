@@ -27,6 +27,7 @@ class Render {
 
     launch() {
         this.vrDisplay.requestPresent([{source: this.renderer.domElement}]);
+        this.scene.launch();
     };
 };
 
