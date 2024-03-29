@@ -30,10 +30,17 @@ class WelcomeScreen extends Screen {
 		renderGroup.add( grid );
 
         // UI
-        var mesh = new TextBox("Welcome to CardiVR!", 0.07, 0.07, 50, 0xffffff);
-        mesh.position.z = -1;
-        mesh.position.y = 0.03;
+        var plan = new THREE.PlaneGeometry( 15 , 4 );
+        var onglets = new THREE.Group();
+
+        var map = new THREE.TextureLoader().load( "./assets/logos/images/full_logo.png" );
+        var material = new THREE.SpriteMaterial( { map: map, color: 0x000000 } );
+
+        var logo = new THREE.Mesh( plan , material );
+        logo.position.z = -1;
+        logo.position.y = 0.03;
         mesh.lookAt( this.root.camera.position );
+        scene.add(logo);
 
         renderGroup.add( mesh );
 
