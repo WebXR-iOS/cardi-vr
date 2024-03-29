@@ -30,8 +30,7 @@ class WelcomeScreen extends Screen {
 		renderGroup.add( grid );
 
         // UI
-        var plan = new THREE.PlaneGeometry( 15 , 4 );
-        var onglets = new THREE.Group();
+        /*var plan = new THREE.PlaneGeometry( 15 , 4 );
 
         var map = new THREE.TextureLoader().load( "./assets/logos/images/full_logo.png" );
         var material = new THREE.SpriteMaterial( { map: map, color: 0x000000 } );
@@ -40,7 +39,7 @@ class WelcomeScreen extends Screen {
         logo.position.z = -1;
         logo.position.y = 0.03;
         logo.lookAt( this.root.camera.position );
-        renderGroup.add(logo);
+        renderGroup.add(logo);*/
 
         setTimeout(() => {
             this.renderScreen(new ActionsInfoScreen(this.root));
