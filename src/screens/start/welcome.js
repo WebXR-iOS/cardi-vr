@@ -39,7 +39,7 @@ class WelcomeScreen extends Screen {
 
         setTimeout(() => {
             this.renderScreen(new ActionsInfoScreen(this.root));
-        }, 2000);
+        }, 10000);
     };
 };
 
