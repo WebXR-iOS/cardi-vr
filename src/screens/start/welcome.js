@@ -38,8 +38,10 @@ class WelcomeScreen extends Screen {
 		var material = new THREE.MeshBasicMaterial( 
 		  { side:THREE.DoubleSide, map:texture, transparent:true, opacity:1.0 } );
 
-        var mesh = new THREE.Mesh(geometry, material);
-        renderGroup.add(mesh);
+        var logo = new THREE.Mesh(geometry, material);
+        logo.position.z = -1;
+        logo.position.y = 0.03;
+        renderGroup.add(logo);
 
         setTimeout(() => {
             this.renderScreen(new ActionsInfoScreen(this.root));
