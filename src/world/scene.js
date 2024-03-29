@@ -27,7 +27,7 @@ class Scene {
             new THREE.RingBufferGeometry(0.005, 0.01, 15),
             new THREE.MeshBasicMaterial({ color: 0xffffff }).depthTest = false
         );
-        reticle.position.z = -0.5;
+        this.reticle.position.z = -0.5;
         this.camera.add(this.reticle);
         this.scene.add(this.camera);
 
