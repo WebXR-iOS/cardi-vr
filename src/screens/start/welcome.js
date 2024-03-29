@@ -42,8 +42,6 @@ class WelcomeScreen extends Screen {
         logo.lookAt( this.root.camera.position );
         renderGroup.add(logo);
 
-        renderGroup.add( mesh );
-
         setTimeout(() => {
             this.renderScreen(new ActionsInfoScreen(this.root));
         }, 8000);
