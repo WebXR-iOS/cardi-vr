@@ -30,16 +30,16 @@ class WelcomeScreen extends Screen {
 		renderGroup.add( grid );
 
         // UI
-        /*var plan = new THREE.PlaneGeometry( 15 , 4 );
+        var texture = new THREE.TextureLoader().load( "./assets/logos/images/full_logo.png" );
+		texture.minFilter = THREE.LinearFilter;
+		texture.needsUpdate = true;
 
-        var map = new THREE.TextureLoader().load( "./assets/logos/images/full_logo.png" );
-        var material = new THREE.SpriteMaterial( { map: map, color: 0x000000 } );
+        var geometry = new THREE.PlaneGeometry(wWorldAll, hWorldAll);
+		var material = new THREE.MeshBasicMaterial( 
+		  { side:THREE.DoubleSide, map:texture, transparent:true, opacity:1.0 } );
 
-        var logo = new THREE.Mesh( plan , material );
-        logo.position.z = -1;
-        logo.position.y = 0.03;
-        logo.lookAt( this.root.camera.position );
-        renderGroup.add(logo);*/
+        var mesh = new THREE.Mesh(geometry, material);
+        renderGroup.add(mesh);
 
         setTimeout(() => {
             this.renderScreen(new ActionsInfoScreen(this.root));
