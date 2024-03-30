@@ -2,6 +2,10 @@
  * @author crazyh / https://github.com/crazyh2
  */
 
+import * as THREE from "../../libraries/three.module.min.js";
+import { DeviceOrientationControls } from "../../utils/DeviceOrientationControls.js";
+import { CardboardActions } from "../../utils/CardboardActions.js";
+import { VREffect } from "../../utils/VREffect.js";
 import { WelcomeScreen } from "../screens/start/welcome.js";
 import { ScreenManager } from "./../screens/screenManager.js";
 
@@ -27,10 +31,10 @@ class Scene {
         var actionControls = new CardboardActions(this.camera);
 
         // Apply VR headset rotational data to camera.
-        var controls = new THREE.DeviceOrientationControls(this.camera);
+        var controls = new DeviceOrientationControls(this.camera);
 
         // Apply VR stereo rendering to renderer.
-        var effect = new THREE.VREffect(this.top.renderer);
+        var effect = new VREffect(this.top.renderer);
         effect.setSize(window.innerWidth, window.innerHeight);
 
         // Kick off the render loop.

@@ -8,7 +8,9 @@
  * Chromium: https://webvr.info/get-chrome
  */
 
-THREE.VREffect = function ( renderer, onError ) {
+import * as THREE from "../libraries/three.module.min.js";
+
+var VREffect = function ( renderer, onError ) {
 
 	var vrDisplay, vrDisplays;
 	var eyeTranslationL = new THREE.Vector3();
@@ -58,7 +60,7 @@ THREE.VREffect = function ( renderer, onError ) {
 
 	var scope = this;
 
-	var rendererSize = renderer.getSize();
+	var rendererSize = new THREE.Vector2( 0, 0 ); renderer.getSize(rendererSize);
 	var rendererUpdateStyle = false;
 	var rendererPixelRatio = renderer.getPixelRatio();
 
@@ -121,7 +123,7 @@ THREE.VREffect = function ( renderer, onError ) {
 			if ( ! wasPresenting ) {
 
 				rendererPixelRatio = renderer.getPixelRatio();
-				rendererSize = renderer.getSize();
+				rendererSize = new THREE.Vector2( 0, 0 ); renderer.getSize(rendererSize);
 
 				renderer.setPixelRatio( 1 );
 				renderer.setSize( eyeWidth * 2, eyeHeight, false );
@@ -235,12 +237,12 @@ THREE.VREffect = function ( renderer, onError ) {
 
 		if ( vrDisplay && scope.isPresenting ) {
 
-			var autoUpdate = scene.autoUpdate;
+			var autoUpdate = scene.matrixWorldAutoUpdate;
 
 			if ( autoUpdate ) {
 
 				scene.updateMatrixWorld();
-				scene.autoUpdate = false;
+				scene.matrixWorldAutoUpdate = false;
 
 			}
 
@@ -253,7 +255,7 @@ THREE.VREffect = function ( renderer, onError ) {
 
 			// When rendering we don't care what the recommended size is, only what the actual size
 			// of the backbuffer is.
-			var size = renderer.getSize();
+			var size = new THREE.Vector2( 0, 0 ); renderer.getSize(size);
 			var layers = vrDisplay.getLayers();
 			var leftBounds;
 			var rightBounds;
@@ -387,7 +389,7 @@ THREE.VREffect = function ( renderer, onError ) {
 
 			if ( autoUpdate ) {
 
-				scene.autoUpdate = true;
+				scene.matrixWorldAutoUpdate = true;
 
 			}
 
@@ -454,8 +456,8 @@ THREE.VREffect = function ( renderer, onError ) {
 
 		// The eye's model matrix in head space is the inverse of headToEyeMatrix we calculated above.
 
-		eyeMatrixL.getInverse( eyeMatrixL );
-		eyeMatrixR.getInverse( eyeMatrixR );
+		eyeMatrixL.invert();//getInverse( eyeMatrixL );
+		eyeMatrixR.invert();//getInverse( eyeMatrixR );
 
 	}
 
@@ -531,3 +533,5 @@ THREE.VREffect = function ( renderer, onError ) {
 	}
 
 };
+
+export { VREffect };
