@@ -2,7 +2,7 @@
  * @author crazyh / https://github.com/crazyh2
  */
 
-import * as THREE from "../libraries/three.module.min.js";
+import * as THREE from "../../libraries/three.module.min.js";
 import { DeviceOrientationControls } from "../../utils/DeviceOrientationControls.js";
 import { CardboardActions } from "../../utils/CardboardActions.js";
 import { VREffect } from "../../utils/VREffect.js";

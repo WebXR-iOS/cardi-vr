@@ -2,7 +2,7 @@
  * @author crazyh / https://github.com/crazyh2
  */
 
-import * as THREE from "../libraries/three.module.min.js";
+import * as THREE from "../../../libraries/three.module.min.js";
 import { Screen } from "../screen.js";
 import { TextBox } from "../../../utils/TextBox.js";
 import { ActionsInfoScreen } from "./actionsInfo.js";
