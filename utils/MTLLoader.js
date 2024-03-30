@@ -4,15 +4,17 @@
  * @author angelxuanchang
  */
 
-THREE.MTLLoader = function ( manager ) {
+import * as THREE from "../libraries/three.module.min.js";
+
+var MTLLoader = function ( manager ) {
 
 	this.manager = ( manager !== undefined ) ? manager : THREE.DefaultLoadingManager;
 
 };
 
-THREE.MTLLoader.prototype = {
+MTLLoader.prototype = {
 
-	constructor: THREE.MTLLoader,
+	constructor: MTLLoader,
 
 	/**
 	 * Loads and parses a MTL asset from a URL.
@@ -101,7 +103,7 @@ THREE.MTLLoader.prototype = {
 	 * Parses a MTL file.
 	 *
 	 * @param {String} text - Content of MTL file
-	 * @return {THREE.MTLLoader.MaterialCreator}
+	 * @return {MTLLoader.MaterialCreator}
 	 *
 	 * @see setPath setTexturePath
 	 *
@@ -159,7 +161,7 @@ THREE.MTLLoader.prototype = {
 
 		}
 
-		var materialCreator = new THREE.MTLLoader.MaterialCreator( this.texturePath || this.path, this.materialOptions );
+		var materialCreator = new MTLLoader.MaterialCreator( this.texturePath || this.path, this.materialOptions );
 		materialCreator.setCrossOrigin( this.crossOrigin );
 		materialCreator.setManager( this.manager );
 		materialCreator.setMaterials( materialsInfo );
@@ -184,7 +186,7 @@ THREE.MTLLoader.prototype = {
  * @constructor
  */
 
-THREE.MTLLoader.MaterialCreator = function ( baseUrl, options ) {
+MTLLoader.MaterialCreator = function ( baseUrl, options ) {
 
 	this.baseUrl = baseUrl || '';
 	this.options = options;
@@ -198,9 +200,9 @@ THREE.MTLLoader.MaterialCreator = function ( baseUrl, options ) {
 
 };
 
-THREE.MTLLoader.MaterialCreator.prototype = {
+MTLLoader.MaterialCreator.prototype = {
 
-	constructor: THREE.MTLLoader.MaterialCreator,
+	constructor: MTLLoader.MaterialCreator,
 
 	crossOrigin: 'Anonymous',
 
@@ -549,3 +551,5 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 	}
 
 };
+
+export { MTLLoader };
