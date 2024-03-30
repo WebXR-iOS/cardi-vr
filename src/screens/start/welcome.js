@@ -34,7 +34,7 @@ class WelcomeScreen extends Screen {
 		texture.minFilter = THREE.LinearFilter;
 		texture.needsUpdate = true;
 
-        var geometry = new THREE.PlaneGeometry(5, (4 / 3));
+        var geometry = new THREE.PlaneGeometry((15 / 6), (4 / 6));
 		var material = new THREE.MeshBasicMaterial( 
 		  { side:THREE.DoubleSide, map:texture, transparent:true, opacity:1.0 } );
 
