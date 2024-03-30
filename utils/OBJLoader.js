@@ -2,9 +2,7 @@
  * @author mrdoob / http://mrdoob.com/
  */
 
-import * as THREE from "../libraries/three.module.min.js";
-
-var OBJLoader = ( function () {
+THREE.OBJLoader = ( function () {
 
 	// o object_name | g group_name
 	var object_pattern           = /^[og]\s*(.+)?/;
@@ -670,5 +668,3 @@ var OBJLoader = ( function () {
 	return OBJLoader;
 
 } )();
-
-export { OBJLoader };

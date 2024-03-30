@@ -80,7 +80,11 @@
  * THE SOFTWARE.
  */
 
-var MainFunc = (function () { 'use strict';
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global.CardboardVRDisplay = factory());
+}(this, (function () { 'use strict';
 
 var asyncGenerator = function () {
   function AwaitValue(value) {
@@ -3462,6 +3466,4 @@ CardboardVRDisplay.VRDisplay = VRDisplay;
 
 return CardboardVRDisplay;
 
-})();
-
-export default MainFunc;
+})));

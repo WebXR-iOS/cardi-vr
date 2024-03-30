@@ -1,5 +1,3 @@
-import * as THREE from "../libraries/three.module.min.js";
-
 /**
  * Text = 3D Text
  *

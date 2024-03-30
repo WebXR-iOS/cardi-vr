@@ -2,8 +2,6 @@
  * @author crazyh / https://github.com/crazyh2
  */
 
-import * as THREE from "../libraries/three.module.min.js";
-import CardboardVRDisplay from "../libraries/cardboard-vr-display.js";
 import { Render } from "./world/render.js";
 
 class Main {

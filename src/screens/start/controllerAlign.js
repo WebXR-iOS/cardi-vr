@@ -2,9 +2,6 @@
  * @author crazyh / https://github.com/crazyh2
  */
 
-import * as THREE from "../../../libraries/three.module.min.js";
-import { MTLLoader } from "../../../utils/MTLLoader.js";
-import { OBJLoader } from "../../../utils/OBJLoader.js";
 import { Screen } from "../screen.js";
 import { TextBox } from "../../../utils/TextBox.js";
 
@@ -46,11 +43,11 @@ class ControllerAlignScreen extends Screen {
 
         renderGroup.add( mesh );
 
-        var mtlLoader = new MTLLoader();
+        var mtlLoader = new THREE.MTLLoader();
         mtlLoader.load("./assets/objects/gear_vr_controller.mtl", function(materials) {
             materials.preload();
 
-            var objLoader = new OBJLoader();
+            var objLoader = new THREE.OBJLoader();
             objLoader.setMaterials(materials);
             objLoader.load("./assets/objects/gear_vr_controller.obj", function(object) {
                 object.position.z = -0.8;

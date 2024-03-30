@@ -27,5 +27,3 @@ class CardboardActions {
         }
     };
 };
-
-export { CardboardActions };

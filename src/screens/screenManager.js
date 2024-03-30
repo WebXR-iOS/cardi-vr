@@ -2,8 +2,6 @@
  * @author crazyh / https://github.com/crazyh2
  */
 
-import * as THREE from "../../libraries/three.module.min.js";
-
 class ScreenManager {
     constructor(root) {
         this.root = root;
