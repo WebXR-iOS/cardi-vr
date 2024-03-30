@@ -21,13 +21,7 @@ class WelcomeScreen extends Screen {
         renderGroup.add( light );
 
         // Fade effect
-        renderGroup.background = new THREE.Color( 0x976dc2 );
-		renderGroup.fog = new THREE.Fog( 0x976dc2, 200, 1000 );
-
-        // Ground
-		const grid = new THREE.GridHelper( 2000, 20, 0x000000, 0x000000 );
-        grid.position.y = -300;
-		renderGroup.add( grid );
+        renderGroup.background = new THREE.Color( 0x000000 );
 
         // UI
         var texture = new THREE.TextureLoader().load( "./assets/logos/images/full_logo.png" );
@@ -45,7 +39,7 @@ class WelcomeScreen extends Screen {
 
         setTimeout(() => {
             this.renderScreen(new ActionsInfoScreen(this.root));
-        }, 8000);
+        }, 14000);
     };
 };
 
