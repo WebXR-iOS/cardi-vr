@@ -4,7 +4,8 @@
 
 import { Screen } from "../screen.js";
 import { TextBox } from "../../../utils/TextBox.js";
-import { ActionsInfoScreen } from "./actionsInfo.js";
+import { ControllerAlignScreen } from "./controllerAlign.js";
+//import { ActionsInfoScreen } from "./actionsInfo.js";
 
 class WelcomeScreen extends Screen {
     constructor(root) {
@@ -38,7 +39,8 @@ class WelcomeScreen extends Screen {
         renderGroup.add(logo);
 
         setTimeout(() => {
-            this.renderScreen(new ActionsInfoScreen(this.root));
+            this.renderScreen(new ControllerAlignScreen(this.root));
+            //this.renderScreen(new ActionsInfoScreen(this.root));
         }, 14000);
     };
 };

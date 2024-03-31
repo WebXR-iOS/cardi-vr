@@ -58,6 +58,13 @@ class ControllerAlignScreen extends Screen {
                 renderGroup.add(object);
             });
         });
+
+        var mesh = new TextBox("Then click the app button", 0.07, 0.07, 50, 0xffffff);
+        mesh.position.z = -1;
+        mesh.position.y = -0.5;
+        mesh.lookAt( this.root.camera.position );
+
+        renderGroup.add( mesh );
     };
 };
 
