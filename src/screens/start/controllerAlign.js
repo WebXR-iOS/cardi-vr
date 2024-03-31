@@ -20,11 +20,13 @@ class ControllerAlignScreen extends Screen {
         renderGroup.add( light );
 
         // Fade effect
-        renderGroup.background = new THREE.Color( 0x976dc2 );
-        renderGroup.fog = new THREE.Fog( 0x976dc2, 200, 1000 );
+        renderGroup.background = new THREE.Color( 0x525252 );
+        renderGroup.fog = new THREE.Fog( 0x525252, 200, 1000 );
+        //renderGroup.background = new THREE.Color( 0x976dc2 );
+        //renderGroup.fog = new THREE.Fog( 0x976dc2, 200, 1000 );
 
         // Ground
-        const grid = new THREE.GridHelper( 2000, 20, 0x000000, 0x000000 );
+        const grid = new THREE.GridHelper( 2000, 20, 0x9e9e9e, 0x9e9e9e );
         grid.position.y = -300;
         renderGroup.add( grid );
 
@@ -61,7 +63,7 @@ class ControllerAlignScreen extends Screen {
 
         var mesh = new TextBox("Then click the app button", 0.07, 0.07, 50, 0xffffff);
         mesh.position.z = -1;
-        mesh.position.y = -0.5;
+        mesh.position.y = 0.15;
         mesh.lookAt( this.root.camera.position );
 
         renderGroup.add( mesh );
