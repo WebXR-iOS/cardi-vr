@@ -61,7 +61,7 @@ class ControllerAlignScreen extends Screen {
             });
         });
 
-        var mesh = new TextBox("Then click the app button", 0.07, 0.07, 50, 0xffffff);
+        var mesh = new TextBox("Then click the back button", 0.07, 0.07, 50, 0xffffff);
         mesh.position.z = -1;
         mesh.position.y = -0.1;
         mesh.lookAt( this.root.camera.position );
