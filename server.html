@@ -1,0 +1,45 @@
+<!--
+/**
+ * @author crazyh / https://github.com/crazyh2
+ */
+-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <title>CardiVR Server</title>
+    <link rel="shortcut icon" type="image/png" href="../assets/logos/images/logo.png">
+    <link rel="icon" type="image/png" href="../assets/logos/images/logo.png">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+
+</head>
+
+<body>
+    
+    <div id="wrapper">
+        <div style="display: none;" id="vr-group">
+            <div id="info-msg">CardiVR Server</div>
+            <div id="container"></div>
+        </div>
+        <div id="app-group">
+            <div></div>
+            <img src="./assets/logos/images/logo.png">
+            <h1>CardiVR</h1>
+            <button class="setupController">Setup Controller</button>
+        </div>
+    </div>
+    <video id="cameraFeed" style="display: none;" playsinline autoplay muted></video>
+
+    <script src="../libraries/tracking.js"></script>
+    <script type="module" src="../server/serverScript.js"></script>
+  
+</body>
+
+</html>
