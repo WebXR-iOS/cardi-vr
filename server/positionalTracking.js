@@ -13,10 +13,11 @@ class PositionalTracking {
         var scope = this;
 
         this.color = new tracking.ColorTracker(['yellow']);
-
-        colors.on('track', (event) => {scope.data(scope, event)});
+        this.color.setMinDimension(5);
 
         tracking.track('#cameraFeed', scope.color);
+
+        this.color.on('track', (event) => {scope.data(scope, event)});
     };
 
     data(scope, event) {
