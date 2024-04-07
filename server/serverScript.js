@@ -1,7 +1,7 @@
-import { PositionalTracking } from "./positionalTracking.js";
+import { ControllerTracking } from "./controllerTracking.js";
 
 async function setupController() {
-  window.positionTracking = new PositionalTracking();
+  window.controllerTracking = new ControllerTracking();
 };
 
 document.querySelector(".setupController").addEventListener("click", setupController);

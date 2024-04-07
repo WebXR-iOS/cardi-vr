@@ -19,6 +19,23 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
 
+    <style>
+        #canvas, #cameraFeed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 3;
+        };
+
+        #canvas {
+            z-index: 4 !important;
+        }
+
+        #cameraFeed {
+            left: -46px !important;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -36,6 +53,7 @@
         </div>
     </div>
     <video id="cameraFeed" width="800" height="530" playsinline autoplay muted></video>
+    <canvas id="canvas" width="800" height="530"></canvas>
 
     <script src="./libraries/tracking.js"></script>
     <script type="module" src="./server/serverScript.js"></script>

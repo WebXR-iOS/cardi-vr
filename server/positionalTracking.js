@@ -1,6 +1,11 @@
 class PositionalTracking {
-    constructor() {
+    constructor(root) {
+        this.root = root;
         var scope = this;
+
+        this.focalLength = 10000000; // Focal length of the camera in pixels (hypothetical value)
+        this.trackedObjectWidth = 4; // Width of the object in cm
+        this.trackedObjectHeight = 4; // Height of the object in cm
 
         navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: "user" }}).then(function success(stream) {
             document.querySelector("#cameraFeed").srcObject = stream;
@@ -12,7 +17,21 @@ class PositionalTracking {
     start() {
         var scope = this;
 
-        this.color = new tracking.ColorTracker(['yellow']);
+        /*tracking.ColorTracker.registerColor('theColor', function(r, g, b) {
+            if (r > 185 && g > 115 && g < 135 && b < 40) {
+              return true;
+            }
+            return false;
+        });*/
+
+        tracking.ColorTracker.registerColor('yellowgreen', function(r, g, b) {
+            if (r > 150 && g > 150 && b < 80) {
+                return true;
+            }
+            return false;
+          });
+
+        this.color = new tracking.ColorTracker(['yellowgreen']);//yellow
         this.color.setMinDimension(5);
 
         tracking.track('#cameraFeed', scope.color);
@@ -30,13 +49,50 @@ class PositionalTracking {
     };
 
     update(scope, event) {
-        event.data.forEach(function(rect) {
+        /*event.data.forEach(function(rect) {
+            console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
             // rect.x, rect.y, rect.height, rect.width, rect.color
+        });*/
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        event.data.forEach(function(rect) {
+          if (rect.color === 'custom') {
+            rect.color = scope.color.customColor;
+          }
+
+          context.strokeStyle = rect.color;
+          context.strokeRect(rect.x, rect.y, rect.width, rect.height);
+
+          rect.z = scope.estimateDepth(scope.focalLength, scope.trackedObjectWidth, scope.trackedObjectHeight, rect.width, rect.height);
         });
+
+        var output = {
+            color: event.data[0].color,
+            x: event.data[0].x / 10,
+            y: event.data[0].y / 10,
+            z: event.data[0].z
+        }
+
+        scope.root.position = output;
+
+        //console.log(output);
     };
 
     notVisibleController(scope, event) {
+        scope.root.position = { error: "Empty" };
 
+        //console.log({ error: "Empty" });
+    };
+
+    estimateDepth(focalLength, objectWidth, objectHeight, imageWidth, imageHeight) {
+        const distance = (focalLength * (objectWidth / 100)) / imageWidth;
+
+        const correctedDistance = (distance * (objectHeight / 100)) / imageHeight;
+
+        return correctedDistance;
     };
 };
 
