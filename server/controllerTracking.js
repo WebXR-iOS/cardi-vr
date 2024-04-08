@@ -15,7 +15,7 @@ class ControllerTracking {
     connect(id) {
         var scope = this;
 
-        //this.socket.connect(id);
+        this.socket.connect(id);
 
         setInterval(() => {
             scope.send(scope);
@@ -23,10 +23,10 @@ class ControllerTracking {
     };
 
     send(scope) {
-        /*this.socket.send(JSON.stringify({
+        this.socket.send(JSON.stringify({
             position: scope.position,
             rotation: scope.rotation
-        }));*/
+        }));
 
         console.log({
             position: scope.position,
