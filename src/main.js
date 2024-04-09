@@ -3,10 +3,13 @@
  */
 
 import { Render } from "./world/render.js";
+import { PeerManager } from "./peer.js";
 
 class Main {
     constructor() {
         var scope = this;
+
+        this.peer = new PeerManager(this);
 
         this.load();
 
@@ -43,6 +46,7 @@ class Main {
         document.querySelector("#app-group").style.display = "none";
 
         this.render.launch();
+        this.peer.launch();
     };
 };
 

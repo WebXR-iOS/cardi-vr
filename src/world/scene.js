@@ -23,6 +23,12 @@ class Scene {
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
         this.scene.add(this.camera);
 
+        // Create vr hand
+        let geometryHand = new THREE.SphereGeometry( 5, 32, 32 );
+        let materialHand = new THREE.MeshStandardMaterial({color: 0x0000ff, roughness: 0});
+        this.hand = new THREE.Mesh( geometryHand, materialHand );
+        this.scene.add(this.hand);
+
         // Apply VR headset action controls to camera.
         var actionControls = new CardboardActions(this.camera);
 

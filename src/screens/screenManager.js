@@ -5,6 +5,8 @@
 class ScreenManager {
     constructor(root) {
         this.root = root;
+
+        this.currentScreen = null;
     };
 
     renderScreen(screenGroup) {
@@ -12,6 +14,9 @@ class ScreenManager {
 
         this.root.scene = screenGroup.renderGroup;
         this.root.scene.add(this.root.camera);
+        this.root.scene.add(this.root.hand);
+
+        this.currentScreen = screenGroup;
     };
 };
 

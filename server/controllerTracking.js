@@ -3,13 +3,15 @@ import { RotationalTracking } from "./rotationalTracking.js";
 import { SocketManager } from "./socketScript.js";
 
 class ControllerTracking {
-    constructor() {
+    constructor(code) {
         this.rotation = { error: "Starting" };
         this.position = { error: "Starting" };
 
         this.socket = new SocketManager();
         this.PositionalTracking = new PositionalTracking(this);
         this.RotationalTracking = new RotationalTracking(this);
+
+        this.connect(code);
     };
 
     connect(id) {

@@ -1,26 +1,24 @@
-import { Peer } from "../libraries/peerjs.esm.js";
-
 class SocketManager {
     constructor() {
         console.log("Waiting for Peer connection");
 
-        this.peer = new Peer();
+        this.socket = io();
         this.conn = null;
     };
 
     connect(id) {
         if(this.conn !== null) return false;
 
-        this.conn = this.peer.connect(id);
+        this.conn = this.socket;
 
         var scope = this;
 
-        this.conn.on('open', function(){
-            console.log("Peer connected");
-        });
+        this.socket.on('connect', function () {
+            console.log("Socket.io connected");
 
-        this.conn.on('data', function(data){
-            scope.data(data, scope);
+            scope.socket.on('controllerDataIn', function (data) {
+                scope.data(data, scope);
+            });
         });
 
         return true;
@@ -36,7 +34,7 @@ class SocketManager {
     send(data) {
         if(this.conn == null) return false;
 
-        this.conn.send(data);
+        this.socket.emit('controllerDataOut', id, data);
         return true;
     };
 };
