@@ -28,6 +28,8 @@ app.get('/', (req, res) => {
     };
 });
 
+app.use(express.static(__dirname + '/'));
+
 app.get('*', (req, res) => {
     res.send('Page Not Found');
 });

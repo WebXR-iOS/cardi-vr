@@ -4,12 +4,14 @@ class SocketManager {
 
         this.socket = io();
         this.conn = null;
+        this.id = null;
     };
 
     connect(id) {
         if(this.conn !== null) return false;
 
         this.conn = this.socket;
+        this.id = id;
 
         var scope = this;
 
@@ -34,7 +36,7 @@ class SocketManager {
     send(data) {
         if(this.conn == null) return false;
 
-        this.socket.emit('controllerDataOut', id, data);
+        this.socket.emit('controllerDataOut', this.id, data);
         return true;
     };
 };
