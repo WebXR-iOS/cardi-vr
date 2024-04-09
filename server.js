@@ -8,7 +8,7 @@ const io = new Server(server);
 
 // WS / WSS
 io.on('connection', (socket) => {
-    console.log('User connected');
+    console.log('User connected ' + socket.id);
 
     socket.on("controllerDataOut", (id, data) => {
         socket.to(id).emit("controllerDataIn", data);

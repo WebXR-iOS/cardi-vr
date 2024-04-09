@@ -4,7 +4,7 @@ import { SocketManager } from "./socketScript.js";
 
 class ControllerTracking {
     constructor(code) {
-        this.rotation = { error: "Starting" };
+        this.rotation = { error: "Empty" }; //"Starting" };
         this.position = { error: "Starting" };
 
         this.socket = new SocketManager();

@@ -24,9 +24,10 @@ class Scene {
         this.scene.add(this.camera);
 
         // Create vr hand
-        let geometryHand = new THREE.SphereGeometry( 5, 32, 32 );
+        let geometryHand = new THREE.SphereBufferGeometry( 5, 32, 32 );
         let materialHand = new THREE.MeshStandardMaterial({color: 0x0000ff, roughness: 0});
         this.hand = new THREE.Mesh( geometryHand, materialHand );
+        this.hand.position.set(0, 0, 0);
         this.scene.add(this.hand);
 
         // Apply VR headset action controls to camera.
