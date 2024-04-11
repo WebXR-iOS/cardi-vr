@@ -38,7 +38,7 @@ class PositionalTracking {
         });
 
         tracking.ColorTracker.registerColor('brightblue', function(r, g, b) {
-            if (r < 120 && g < 120 && b > 150) {
+            if (r < 60 && g < 185 && b > 215) {
                 return true;
             }
             return false;
