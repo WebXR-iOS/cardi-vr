@@ -13,8 +13,8 @@ class PositionalTracking {
         navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: "user" }}).then(function success(stream) {
             document.querySelector("#cameraFeed").srcObject = stream;
 
-            this.cameraWidth = stream.getTracks()[0].getSettings().width;
-            this.cameraHeight = stream.getTracks()[0].getSettings().height;
+            scope.cameraWidth = stream.getTracks()[0].getSettings().width;
+            scope.cameraHeight = stream.getTracks()[0].getSettings().height;
 
             scope.start();
         });
