@@ -7,7 +7,7 @@ class PeerManager {
         this.root = root;
         var scope = this;
 
-        this.cameraScale = 10;
+        this.cameraScale = 0.18;
 
         this.started = false;
 
@@ -68,8 +68,8 @@ class PeerManager {
             var posy = (position.y + (position.height / 2));
             var posz = position.z;
 
-            var worldX = (posx / position.cameraWidth) * 2 - 1;
-            var worldY = -(posy / position.cameraHeight) * 2 + 1;
+            var worldX = -((posx / position.cameraWidth) - 0.5) * 2;
+            var worldY = (0.5 - (posy / position.cameraHeight)) * 2;
 
             this.root.render.scene.hand.position.set(worldX * scope.cameraScale, worldY * scope.cameraScale, posz);
         } else {
