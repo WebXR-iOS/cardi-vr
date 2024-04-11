@@ -70,11 +70,15 @@ class PositionalTracking {
         });
 
         var output = {
+            width: event.data[0].width,
+            height: event.data[0].height,
             color: event.data[0].color,
-            x: event.data[0].x / 10,
-            y: event.data[0].y / 10,
-            z: event.data[0].z
-        }
+            x: event.data[0].x,
+            y: event.data[0].y,
+            z: event.data[0].z,
+            screenWidth: window.innerWidth,
+            screenHeight: window.innerHeight,
+        };
 
         scope.root.position = output;
 

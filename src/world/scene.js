@@ -24,11 +24,23 @@ class Scene {
         this.scene.add(this.camera);
 
         // Create vr hand
-        let geometryHand = new THREE.SphereBufferGeometry( 5, 32, 32 );
-        let materialHand = new THREE.MeshStandardMaterial({color: 0x0000ff, roughness: 0});
-        this.hand = new THREE.Mesh( geometryHand, materialHand );
-        this.hand.position.set(0, 0, 0);
-        this.scene.add(this.hand);
+        this.hand = null;
+        var mtlLoader = new THREE.MTLLoader();
+        mtlLoader.load("./assets/objects/gear_vr_controller.mtl", function(materials) {
+            materials.preload();
+
+            var objLoader = new THREE.OBJLoader();
+            objLoader.setMaterials(materials);
+            objLoader.load("./assets/objects/gear_vr_controller.obj", function(object) {
+                object.position.z = -0.2;
+                object.position.y = -0.3;
+                object.rotation.x = Math.PI / 7;
+                object.scale.set( 2, 2, 2 );
+
+                scope.scene.add(object);
+                scope.hand = object;
+            });
+        });
 
         // Apply VR headset action controls to camera.
         var actionControls = new CardboardActions(this.camera);

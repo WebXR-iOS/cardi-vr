@@ -25,10 +25,10 @@ class ControllerTracking {
     };
 
     send(scope) {
-        this.socket.send(JSON.stringify({
+        this.socket.send({
             position: scope.position,
             rotation: scope.rotation
-        }));
+        });
 
         console.log({
             position: scope.position,

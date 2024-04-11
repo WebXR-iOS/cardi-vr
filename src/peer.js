@@ -39,21 +39,21 @@ class PeerManager {
     data(scope, res) {
         if(scope.started !== true) return;
 
-        if(!(position in res && rotation in res)) return;
+        if(!res.position || !res.rotation) return;
 
         var position = res.position;
         var rotation = res.rotation;
         var posNotFound = false;
 
-        if(error in position) {
+        if(position.error) {
             if(position.error == "Starting") return;
         };
 
-        if(error in rotation) {
+        if(position.error) {
             if(rotation.error == "Starting") return;
         };
 
-        if(error in position) {
+        if(position.error) {
             if(position.error == "Empty") posNotFound = true;
         };
 
@@ -62,9 +62,19 @@ class PeerManager {
 
     update(scope, position, rotation, posNotFound) {
         if(posNotFound == false) {
-            this.root.render.scene.hand.position.x = position.x;
-            this.root.render.scene.hand.position.y = position.y;
-            this.root.render.scene.hand.position.z = position.z;
+            var posx = (position.x + (position.width / 2));
+            var posy = (position.y + (position.height / 2));
+            var posz = position.z;
+
+            var conv = new THREE.Vector3();
+            conv.project(this.root.render.scene.camera);
+            conv.x = ( posx * (position.screenWidth / 2) ) + (position.screenWidth / 2);
+            conv.y = - ( posy * (position.screenHeight / 2) ) + (position.screenHeight / 2);
+            conv.z = posz;
+
+            this.root.render.scene.hand.position.copy(conv);
+        } else {
+            this.root.render.scene.hand.position.set(0, -0.3, -0.2);
         };
     };
 
