@@ -35,9 +35,16 @@ class PositionalTracking {
                 return true;
             }
             return false;
-          });
+        });
 
-        this.color = new tracking.ColorTracker(['yellowgreen']);//yellow
+        tracking.ColorTracker.registerColor('brightblue', function(r, g, b) {
+            if (r < 120 && g < 120 && b > 150) {
+                return true;
+            }
+            return false;
+        });
+
+        this.color = new tracking.ColorTracker(['brightblue']);
         this.color.setMinDimension(5);
 
         tracking.track('#cameraFeed', scope.color);
