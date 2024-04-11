@@ -3,12 +3,18 @@ class PositionalTracking {
         this.root = root;
         var scope = this;
 
+        this.cameraWidth = 0;
+        this.cameraHeight = 0;
+
         this.focalLength = 10000000; // Focal length of the camera in pixels (hypothetical value)
         this.trackedObjectWidth = 4; // Width of the object in cm
         this.trackedObjectHeight = 4; // Height of the object in cm
 
         navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: "user" }}).then(function success(stream) {
             document.querySelector("#cameraFeed").srcObject = stream;
+
+            this.cameraWidth = stream.getTracks()[0].getSettings().width;
+            this.cameraHeight = stream.getTracks()[0].getSettings().height;
 
             scope.start();
         });
@@ -76,8 +82,8 @@ class PositionalTracking {
             x: event.data[0].x,
             y: event.data[0].y,
             z: event.data[0].z,
-            screenWidth: window.innerWidth,
-            screenHeight: window.innerHeight,
+            cameraWidth: scope.cameraWidth,
+            cameraHeight: scope.cameraHeight,
         };
 
         scope.root.position = output;

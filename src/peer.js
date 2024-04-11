@@ -7,6 +7,8 @@ class PeerManager {
         this.root = root;
         var scope = this;
 
+        this.cameraScale = 10;
+
         this.started = false;
 
         this.peerId = this.makeid(3) + "-" + this.makeid(3) + "-" + this.makeid(3);
@@ -66,13 +68,10 @@ class PeerManager {
             var posy = (position.y + (position.height / 2));
             var posz = position.z;
 
-            var conv = new THREE.Vector3();
-            conv.project(this.root.render.scene.camera);
-            conv.x = ( posx * (position.screenWidth / 2) ) + (position.screenWidth / 2);
-            conv.y = - ( posy * (position.screenHeight / 2) ) + (position.screenHeight / 2);
-            conv.z = posz;
+            var worldX = (posx / position.cameraWidth) * 2 - 1;
+            var worldY = -(posy / position.cameraHeight) * 2 + 1;
 
-            this.root.render.scene.hand.position.copy(conv);
+            this.root.render.scene.hand.position.set(worldX * scope.cameraScale, worldY * scope.cameraScale, posz);
         } else {
             this.root.render.scene.hand.position.set(0, -0.3, -0.2);
         };
