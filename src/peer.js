@@ -7,7 +7,7 @@ class PeerManager {
         this.root = root;
         var scope = this;
 
-        this.cameraScale = 0.18;
+        this.cameraScale = 0.315;
 
         this.started = false;
 

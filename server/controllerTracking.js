@@ -21,7 +21,7 @@ class ControllerTracking {
 
         setInterval(() => {
             scope.send(scope);
-        }, 8);
+        }, 3);
     };
 
     send(scope) {
