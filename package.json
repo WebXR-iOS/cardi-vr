@@ -8,5 +8,8 @@
     "start": "node server.js"
   },
   "author": "CrazyH",
-  "license": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International"
+  "license": "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International",
+  "dependencies": {
+    "http": "0.0.1-security"
+  }
 }
