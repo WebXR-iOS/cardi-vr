@@ -44,7 +44,7 @@ class PositionalTracking {
             return false;
         });
 
-        this.color = new tracking.ColorTracker(['brightblue']);
+        this.color = new tracking.ColorTracker(['brightblue', 'yellowgreen']);
         this.color.setMinDimension(5);
 
         tracking.track('#cameraFeed', scope.color);
